@@ -163,8 +163,7 @@ translator:
     - xform/eu/ou/
     - xform/aon/ang/
     - xform/on/ong/
-    - xform/(i|yu)k/$1ek/
-    - xform/(yh?)iek/$1ek/
+    - xform/(yh?)uk/$1uik/
 
     - xform/^([mnl])/$1h/
     - xform/^gn/ghn/
