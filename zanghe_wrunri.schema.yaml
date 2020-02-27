@@ -1,0 +1,202 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: zanghe_wrunri
+  name: 上海中派（滬二）
+  version: "0.1.0"
+  author:
+    - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
+  description: |
+    中派上海話輸入方案（滬二）
+    採用上海話拼音方案 副式（滬二）
+    本方案依賴於
+    - 上海吳語拼音輸入方案 ℞ NGLI/rime-wugniu_zaonhe
+    https://github.com/shinzoqchiuq/rime-shanghainese/
+  dependencies:
+    - luna_pinyin
+    - stroke
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    reset: 1
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@luna_pinyin # 自定義tag luna_pinyin
+    - affix_segmentor@stroke      # 自定義tag stroke
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator             # 主翻譯器
+    - script_translator@luna_pinyin # 用於反查的luna_pinyin翻譯器
+    - table_translator@stroke       # 用於反查的stroke翻譯器
+  filters:
+    - simplifier
+    - uniquifier
+    - reverse_lookup_filter@reverse_lookup # 反查濾鏡
+
+speller:
+  alphabet: abcdefghijklmnopqrstuvwxyz
+  delimiter: " '"
+  algebra:
+    - xform/^([bcdfghjklpqstvwxyz])$/$1_/
+    # 轉換爲滬二
+    - xform/^(c|j|gn|kn|[csz]h)i(?=u)/$1/
+    - xform/gn/n/
+    - xform/q/k/
+    - xform/gh/x/
+    - xform/^([yw])/$1r/
+    - xform/^i(?=[aeou])/y/
+    - xform/^u(?=[aeo])/w/
+    - xform/^i(?=n|k|$)/yi/
+    - xform/^u$/wu/
+
+    - xform/^(tsh?|s|z)y/$1z/
+    - xform/iu/yu/
+    - xform/ioe/yuoe/
+    - xform/au/oa/
+    - xform/aon/ang/
+    - xform/on/ong/
+    - xform/(yr?)uk/$1uik/
+    - xform/er/el/
+
+    # 清鼻邊音
+    - derive/^([mnl])/$1r/
+    - xform/^nrg/ngr/
+
+    # 干官不分
+    - derive/uoe/oe/
+    # 余圓不分
+    - derive/(y|yh|j|q|jh|x|xh)uoe$/u/
+    # 打黨不分
+    - derive/ang/an/
+    - derive/an/ang/
+    # 格割不分
+    - derive/ek/ak/
+    - derive/(?<!i)a(?=k)/e/
+    # 約一不分
+    - derive/ia(?=k)/i/
+    - derive/(yr?)a(?=k)/$1i/
+    - derive/(?<!u)i(?=k)/ia/
+    - derive/(yr?)i(?=k)/$1a/
+
+    # 聲母簡拼
+    - abbrev/^([a-z]).+$/$1/
+    - abbrev/^([ptszckg]h|ng|ngr|ts|tsh|dz|[mnl]r).+$/$1/
+    # 容錯 oa => ao
+    - derive/oa/ao/
+    # c組聲母後自動加i
+    - derive/^(c|j|[csz]h)i(?=[aoue])/$1/
+    # 容錯 介音、主元音順序調換
+    - derive/^(.+)([iu])([aeou])([euonk])$/$1$3$2$4/
+    # 容錯 y- => ghi-
+    - derive/yi|y(?=[aeou])/ghi/
+    # 容錯 w- => ghu-
+    - derive/wu|w(?=[aeo])/ghu/
+    # 容錯 oe => eo
+    - derive/oe/eo/
+    # 容錯 ong => on
+    - derive/ong/on/
+    # 容錯 eu => ou
+    - derive/eu/ou/
+    # 容錯 ik => iek yuik => yuek yuik => yuk
+    - derive/ik/iek/
+    - xform/(yr?)ik/$1ek/
+    - derive/uik/uk/
+    - xform/uiek/uek/
+
+# 主翻譯器
+translator:
+  dictionary: wugniu_zaonhe  # 調取詞典wugniu_zaonhe
+  prism: zanghe_wrunri        # 根據拼寫運算生成棱鏡文件zanghe_wrunri
+  spelling_hints: 5          # 標註拼音
+  comment_format: &comment
+    # 轉換爲滬二
+    - xform/\b(c|j|gn|kn|[csz]h)i(?=u)/$1/
+    - xform/gn/n/
+    - xform/q/k/
+    - xform/gh/x/
+    - xform/\b([yw])/$1r/
+    - xform/\bi(?=[aeou])/y/
+    - xform/\bu(?=[aeo])/w/
+    - xform/\bi(?=n|k|$)/yi/
+    - xform/\bu\b/wu/
+
+    - xform/\b(tsh?|s|z)y/$1z/
+    - xform/iu/yu/
+    - xform/ioe/yuoe/
+    - xform/au/oa/
+    - xform/aon/ang/
+    - xform/on/ong/
+    - xform/(yr?)uk/$1uik/
+    - xform/er/el/
+
+    - xform/^([mnl])/$1r/
+
+# 副翻譯器1 朙月拼音
+luna_pinyin:
+  tag: luna_pinyin
+  dictionary: luna_pinyin # 調取詞典luna_pinyin
+  enable_user_dict: false # 關閉用戶詞典
+  prefix: '`'             # 引導鍵「`」
+  suffix: "'"             # 結束鍵「'」
+  tips: 〔拼音〕          # 輸入前提示〔拼音〕
+  closing_tips: 〔滬二〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+# 副翻譯器2 五筆畫
+stroke:
+  tag: stroke
+  dictionary: stroke      # 調取詞典stroke
+  enable_user_dict: false # 關閉用戶詞典
+  prefix: '`'             # 引導鍵「`」
+  suffix: "'"             # 結束鍵「'」
+  tips: 〔筆畫〕          # 輸入前提示〔筆畫〕
+  closing_tips: 〔滬二〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+
+# 反查濾鏡
+reverse_lookup:
+  tags: [luna_pinyin, stroke] # 掛在翻譯器luna_pinyin和stroke上
+  overwrite_comment: true     # 覆蓋其他提示
+  dictionary: wugniu_zaonhe   # 反查所得爲上海吳語
+  comment_format: *comment
+
+punctuator:
+  import_preset: symbols # 句讀處理器，統一從外部導入
+
+key_binder:
+  import_preset: default # 快捷鍵，統一從外部導入
+
+recognizer:
+  import_preset: default # 特殊規則輸入碼，統一從外部導入
+  patterns:
+    punct: "^/([0-9]|10|[A-Za-z]+)$" # 按 / 輸入符號
+    luna_pinyin: "`[hspnz]*[aeiouv][a-z]*'?$|`[a-gi-moqrt-y][a-z]*'?$"
+    stroke: "`[hspnz]+'?$"
