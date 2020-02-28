@@ -4,7 +4,7 @@
 schema:
   schema_id: zanghe_wrunri
   name: 上海中派（滬二）
-  version: "0.1.0"
+  version: "0.1.1"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -75,11 +75,12 @@ speller:
 
     - xform/^(tsh?|s|z)y/$1z/
     - xform/iu/yu/
-    - xform/ioe/yuoe/
+    - xform/(yh?)oe/$1uoe/
+    - xform/ioe/uoe/
     - xform/au/oa/
     - xform/aon/ang/
     - xform/on/ong/
-    - xform/(yr?)uk/$1uik/
+    - xform/uk/uik/
     - xform/er/el/
 
     # 清鼻邊音
@@ -87,7 +88,9 @@ speller:
     - xform/^nrg/ngr/
 
     # 干官不分
-    - derive/uoe/oe/
+    - derive/^(kh?)uoe/$1oe/
+    - derive/^wroe/xoe/
+    - derive/^woe/oe/
     # 余圓不分
     - derive/(y|yh|j|q|jh|x|xh)uoe$/u/
     # 打黨不分
@@ -141,19 +144,20 @@ translator:
     - xform/\b([yw])/$1r/
     - xform/\bi(?=[aeou])/y/
     - xform/\bu(?=[aeo])/w/
-    - xform/\bi(?=n|k|$)/yi/
+    - xform/\bi(?=n|k|\b)/yi/
     - xform/\bu\b/wu/
 
     - xform/\b(tsh?|s|z)y/$1z/
     - xform/iu/yu/
-    - xform/ioe/yuoe/
+    - xform/(yh?)oe/$1uoe/
+    - xform/ioe/uoe/
     - xform/au/oa/
     - xform/aon/ang/
     - xform/on/ong/
-    - xform/(yr?)uk/$1uik/
+    - xform/uk/uik/
     - xform/er/el/
 
-    - xform/^([mnl])/$1r/
+    - xform/\b([mnl])/$1r/
 
 # 副翻譯器1 朙月拼音
 luna_pinyin:

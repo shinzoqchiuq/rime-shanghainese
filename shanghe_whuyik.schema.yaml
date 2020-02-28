@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_whuyik
   name: 上海中派（滬一）
-  version: "0.1.0"
+  version: "0.1.1"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -70,7 +70,7 @@ speller:
     - xform/q/k/
     - xform/ch/q/
     - xform/c/j/
-    - xform/sh/x/
+    - xform/^sh/x/
     - xform/zh/xh/
     - xform/z/sh/
     - xform/tsh/c/
@@ -87,15 +87,18 @@ speller:
     - xform/^u$/wu/
 
     - xform/iu/yu/
-    - xform/ioe/yuoe/
+    - xform/(yh?)oe/$1uoe/
+    - xform/ioe/uoe/
     - xform/au/ao/
     - xform/eu/ou/
     - xform/aon/ang/
     - xform/on/ong/
-    - xform/(yh?)uk/$1uik/
+    - xform/uk/uik/
 
     # 干官不分
-    - derive/uoe/oe/
+    - derive/^([gkh])uoe/$1oe/
+    - derive/^whoe/hhoe/
+    - derive/^woe/oe/
     # 余圓不分
     - derive/(y|yh|j|q|jh|x|xh)uoe$/u/
     # 打黨不分
@@ -147,7 +150,7 @@ translator:
     - xform/q/k/
     - xform/ch/q/
     - xform/c/j/
-    - xform/sh/x/
+    - xform/\bsh/x/
     - xform/zh/xh/
     - xform/z/sh/
     - xform/tsh/c/
@@ -160,18 +163,19 @@ translator:
     - xform/\b([yw])/$1h/
     - xform/\bi(?=[aeou])/y/
     - xform/\bu(?=[aeo])/w/
-    - xform/\bi(?=n|k|$)/yi/
-    - xform/\bu$/wu/
+    - xform/\bi(?=n|k|\b)/yi/
+    - xform/\bu\b/wu/
 
     - xform/iu/yu/
-    - xform/ioe/yuoe/
+    - xform/(yh?)oe/$1uoe/
+    - xform/ioe/uoe/
     - xform/au/ao/
     - xform/eu/ou/
     - xform/aon/ang/
     - xform/on/ong/
-    - xform/(yh?)uk/$1uik/
+    - xform/uk/uik/
 
-    - xform/^([mnl])/$1h/
+    - xform/\b([mnl])/$1h/
 
 # 副翻譯器1 朙月拼音
 luna_pinyin:
