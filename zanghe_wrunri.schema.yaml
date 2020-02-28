@@ -63,8 +63,8 @@ speller:
   algebra:
     - xform/^([bcdfghjklpqstvwxyz])$/$1_/
     # 轉換爲滬二
-    - xform/^(c|j|gn|kn|[csz]h)i(?=u)/$1/
     - xform/gn/n/
+    - xform/^(c|j|[csz]h)i(?=u)/$1/
     - xform/q/k/
     - xform/gh/x/
     - xform/^([yw])/$1r/
@@ -134,8 +134,8 @@ translator:
   spelling_hints: 5          # 標註拼音
   comment_format: &comment
     # 轉換爲滬二
-    - xform/\b(c|j|gn|kn|[csz]h)i(?=u)/$1/
     - xform/gn/n/
+    - xform/\b(c|j|[csz]h)i(?=u)/$1/
     - xform/q/k/
     - xform/gh/x/
     - xform/\b([yw])/$1r/

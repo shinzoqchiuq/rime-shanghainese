@@ -63,7 +63,9 @@ speller:
   algebra:
     - xform/^([bcdfghjklpqstvwxyz])$/$1_/
     # 轉換爲滬一
-    - xform/^(c|j|gn|kn|[csz]h)i(?=u)/$1/
+    - xform/^gn/n/
+    - xform/^gh/hh/
+    - xform/^(c|j|[csz]h)i(?=u)/$1/
     - xform/^([bdgj])/$1h/
     - xform/q/k/
     - xform/ch/q/
@@ -99,25 +101,27 @@ speller:
     # 打黨不分
     - derive/ang$/an/
     - derive/an$/ang/
-    # 格割不分 約一不分
+    # 格割不分
     - derive/ek/ak/
-    - derive/ak/ek/
+    - derive/([bmfdnlsjxgh]h)a(?=k)/$1e/
+    - derive/(?<![iyh])a(?=k)/e/
+    # 約一不分
+    - derive/ia(?=k)/i/
+    - derive/(yh?)a(?=k)/$1i/
+    - derive/(?<!u)i(?=k)/ia/
+    - derive/(yh?)i(?=k)/$1a/
 
     # 清鼻邊音
     - derive/^([mnl])/$1h/
-    - derive/^gn/ghn/
     # fh => v
     - derive/^fh/v/
     # 容錯 gn => n
     - derive/g(h?)n/n$1/
-    # 容錯 ik => iek yuik => yuek yuik => yuk
-    - derive/ik/iek/
-    - xform/(yh?)ik/$1ek/
+    # 容錯 yuik => yuk
     - derive/uik/uk/
-    - xform/uiek/uek/
     # 簡拼
     - abbrev/^([a-z]).+$/$1/
-    - abbrev/^([bfdsjghyw]h).+$/$1/
+    - abbrev/^([bmfdnlsjxghyw]h|ng|nhg).+$/$1/
     # 容錯 ao => oa
     - derive/ao/oa/
     # j組聲母後自動加i
@@ -136,7 +140,9 @@ translator:
   spelling_hints: 5          # 標註拼音
   comment_format: &comment
     # 轉換爲滬一
-    - xform/\b(c|j|gn|kn|[csz]h)i(?=u)/$1/
+    - xform/^gn/n/
+    - xform/^gh/hh/
+    - xform/^(c|j|[csz]h)i(?=u)/$1/
     - xform/\b([bdgj])/$1h/
     - xform/q/k/
     - xform/ch/q/
@@ -166,7 +172,6 @@ translator:
     - xform/(yh?)uk/$1uik/
 
     - xform/^([mnl])/$1h/
-    - xform/^gn/ghn/
 
 # 副翻譯器1 朙月拼音
 luna_pinyin:
