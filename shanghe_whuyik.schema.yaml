@@ -97,8 +97,8 @@ speller:
     # 余圓不分
     - derive/(y|yh|j|q|jh|x|xh)uoe$/u/
     # 打黨不分
-    - derive/ang/an/
-    - derive/an/ang/
+    - derive/ang$/an/
+    - derive/an$/ang/
     # 格割不分 約一不分
     - derive/ek/ak/
     - derive/ak/ek/
