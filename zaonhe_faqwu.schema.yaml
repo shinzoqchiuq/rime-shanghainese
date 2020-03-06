@@ -4,7 +4,7 @@
 schema:
   schema_id: zaonhe_faqwu
   name: 上海中派（法吳）
-  version: "0.1.0"
+  version: "0.1.1"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -77,6 +77,9 @@ speller:
     - xform/eu/oe/
     - xform/ø/eu/
 
+    # iun ion 互讀
+    - derive/(i|y)un/$1on/
+    - derive/(i|y)on/$1un/
     # 干官不分
     - derive/ueu/eu/
     # 余圓不分

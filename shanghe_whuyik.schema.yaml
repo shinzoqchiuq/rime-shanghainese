@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_whuyik
   name: 上海中派（滬一）
-  version: "0.1.1"
+  version: "0.1.2"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -95,6 +95,12 @@ speller:
     - xform/on/ong/
     - xform/uk/uik/
 
+    # yun iong 互讀
+    - derive/(jh?|q|xh?)un/$1iong/
+    - derive/y(h?)un/y$1ong/
+    - derive/(jh?|q|xh?)iong/$1un/
+    - derive/n(h?)iong/n$1yun/
+    - derive/y(h?)ong/y$1un/
     # 干官不分
     - derive/^([gkh])uoe/$1oe/
     - derive/^whoe/hhoe/
