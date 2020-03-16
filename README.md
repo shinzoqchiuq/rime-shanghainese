@@ -10,7 +10,7 @@
 
 本倉庫所有方案均基於中派上海話音系，包含的方案有：
 
-- `shanghe_whuyik`：上海話拼音方案 正式（錢拼）
+- `shanghe_xhipin`：上海話拼音方案 正式（錢拼）
 - `zanghe_wrunri`：上海話拼音方案 副式（滬二）
 - `zaonhe_faqwu`：吳語拉丁式注音法（法吳）
 
