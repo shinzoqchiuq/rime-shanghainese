@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_whuyik
   name: 上海中派（滬一）
-  version: "0.1.2"
+  version: "0.1.3"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -63,7 +63,11 @@ speller:
   algebra:
     - xform/^([bcdfghjklpqstvwxyz])$/$1_/
     # 轉換爲滬一
-    - xform/^gn/n/
+    - xform/^([mnl])/$1h/
+    - xform/^([mnl])hh/$1/
+    - xform/^gn/nh/
+    - xform/^kn/n/
+    - xform/^nhk/ng/
     - xform/^gh/hh/
     - xform/^(c|j|[csz]h)i(?=u)/$1/
     - xform/^([bdgj])/$1h/
@@ -95,6 +99,10 @@ speller:
     - xform/on/ong/
     - xform/uk/uik/
 
+    # 清鼻邊音
+    - derive/^([mnl])h/$1/
+    # fh => v
+    - derive/^fh/v/
     # yun iong 互讀
     - derive/(jh?|q|xh?)un/$1iong/
     - derive/y(h?)un/y$1ong/
@@ -120,15 +128,9 @@ speller:
     - derive/(?<!u)i(?=k)/ia/
     - derive/(yh?)i(?=k)/$1a/
 
-    # 清鼻邊音
-    - derive/^([mnl])/$1h/
-    # fh => v
-    - derive/^fh/v/
-    # 容錯 gn => n
-    - derive/g(h?)n/n$1/
     # 容錯 yuik => yuk
     - derive/uik/uk/
-    # 簡拼
+    # 聲母簡拼
     - abbrev/^([a-z]).+$/$1/
     - abbrev/^([bmfdnlsjxghyw]h|ng|nhg).+$/$1/
     # 容錯 ao => oa
@@ -149,9 +151,13 @@ translator:
   spelling_hints: 5          # 標註拼音
   comment_format: &comment
     # 轉換爲滬一
-    - xform/^gn/n/
-    - xform/^gh/hh/
-    - xform/^(c|j|[csz]h)i(?=u)/$1/
+    - xform/\b([mnl])/$1h/
+    - xform/\b([mnl])hh/$1/
+    - xform/\bgn/nh/
+    - xform/\bkn/n/
+    - xform/\bnhk/ng/
+    - xform/\bgh/hh/
+    - xform/\b(c|j|[csz]h)i(?=u)/$1/
     - xform/\b([bdgj])/$1h/
     - xform/q/k/
     - xform/ch/q/
@@ -180,8 +186,6 @@ translator:
     - xform/aon/ang/
     - xform/on/ong/
     - xform/uk/uik/
-
-    - xform/\b([mnl])/$1h/
 
 # 副翻譯器1 朙月拼音
 luna_pinyin:

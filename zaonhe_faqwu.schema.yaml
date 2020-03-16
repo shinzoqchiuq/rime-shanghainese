@@ -4,7 +4,7 @@
 schema:
   schema_id: zaonhe_faqwu
   name: 上海中派（法吳）
-  version: "0.1.1"
+  version: "0.1.2"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -95,13 +95,18 @@ speller:
     - derive/i(?=q)/ia/
     - derive/yi(?=q)/ya/
 
+    # 清鼻邊音
+    - derive/([mnl])h/$1/
+    - derive/kn/gn/
+    - derive/nk/ng/
+    # 容錯 gn => n kn => nh
+    - derive/gni/ni/
+    - derive/kni/nhi/
     # 聲母簡拼
     - abbrev/^([a-z]).+$/$1/
-    - abbrev/^([pmtnlszckg]h|gn|ng|nk|tz|ts|dz).+$/$1/
-    # 容錯 gn => n （無gni ni對立）
-    - derive/gni/ni/
+    - abbrev/^([pmtnlszckg]h|gn|kn|ng|nk|tz|ts|dz).+$/$1/
     # c組聲母後自動加i
-    - derive/^(c|j|gn|[csz]h)i(?=[aoue])/$1/
+    - derive/^(c|j|kn|gn|[csz]h)i(?=[aoue])/$1/
     # 容錯 介音、主元音順序調換
     - derive/^(.+)([iu])([aeou])([euonqh])$/$1$3$2$4/
     # 容錯 y- => ghi-

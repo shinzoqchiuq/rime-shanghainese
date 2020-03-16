@@ -4,7 +4,7 @@
 schema:
   schema_id: zanghe_wrunri
   name: 上海中派（滬二）
-  version: "0.1.2"
+  version: "0.1.3"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -63,7 +63,12 @@ speller:
   algebra:
     - xform/^([bcdfghjklpqstvwxyz])$/$1_/
     # 轉換爲滬二
-    - xform/gn/n/
+    - xform/^([mnl])/$1r/
+    - xform/^([mnl])rh/$1/
+    - xform/^gn/nr/
+    - xform/^kn/n/
+    - xform/^nrg/ngr/
+    - xform/^nrk/ng/
     - xform/^(c|j|[csz]h)i(?=u)/$1/
     - xform/q/k/
     - xform/gh/x/
@@ -84,9 +89,8 @@ speller:
     - xform/er/el/
 
     # 清鼻邊音
-    - derive/^([mnl])/$1r/
-    - xform/^nrg/ngr/
-
+    - derive/^([mnl])r/$1/
+    - derive/^ngr/ng/
     # yun iong 互讀
     - derive/(ch?|j|sh|zh)un/$1iong/
     - derive/y(r?)un/y$1ong/
@@ -111,6 +115,8 @@ speller:
     - derive/(?<!u)i(?=k)/ia/
     - derive/(yr?)i(?=k)/$1a/
 
+    # 容錯 yuik => yuk
+    - derive/uik/uk/
     # 聲母簡拼
     - abbrev/^([a-z]).+$/$1/
     - abbrev/^([ptszckg]h|ng|ngr|ts|tsh|dz|[mnl]r).+$/$1/
@@ -120,21 +126,12 @@ speller:
     - derive/^(c|j|[csz]h)i(?=[aoue])/$1/
     # 容錯 介音、主元音順序調換
     - derive/^(.+)([iu])([aeou])([euonk])$/$1$3$2$4/
-    # 容錯 y- => ghi-
-    - derive/yi|y(?=[aeou])/ghi/
-    # 容錯 w- => ghu-
-    - derive/wu|w(?=[aeo])/ghu/
     # 容錯 oe => eo
     - derive/oe/eo/
     # 容錯 ong => on
     - derive/ong/on/
     # 容錯 eu => ou
     - derive/eu/ou/
-    # 容錯 ik => iek yuik => yuek yuik => yuk
-    - derive/ik/iek/
-    - xform/(yr?)ik/$1ek/
-    - derive/uik/uk/
-    - xform/uiek/uek/
 
 # 主翻譯器
 translator:
@@ -143,14 +140,19 @@ translator:
   spelling_hints: 5          # 標註拼音
   comment_format: &comment
     # 轉換爲滬二
-    - xform/gn/n/
+    - xform/\b([mnl])/$1r/
+    - xform/\b([mnl])rh/$1/
+    - xform/\bgn/nr/
+    - xform/\bkn/n/
+    - xform/\bnrg/ngr/
+    - xform/\bnrk/ng/
     - xform/\b(c|j|[csz]h)i(?=u)/$1/
     - xform/q/k/
     - xform/gh/x/
     - xform/\b([yw])/$1r/
     - xform/\bi(?=[aeou])/y/
     - xform/\bu(?=[aeo])/w/
-    - xform/\bi(?=n|k|\b)/yi/
+    - xform/\bi(?=n|k|$)/yi/
     - xform/\bu\b/wu/
 
     - xform/\b(tsh?|s|z)y/$1z/
@@ -162,8 +164,6 @@ translator:
     - xform/on/ong/
     - xform/uk/uik/
     - xform/er/el/
-
-    - xform/\b([mnl])/$1r/
 
 # 副翻譯器1 朙月拼音
 luna_pinyin:
