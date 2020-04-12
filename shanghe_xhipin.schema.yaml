@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_xhipin
   name: 上海中派（錢拼）
-  version: "0.1.3"
+  version: "0.1.4"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -103,12 +103,6 @@ speller:
     - derive/^([mnl])h/$1/
     # fh => v
     - derive/^fh/v/
-    # yun iong 互讀
-    - derive/(jh?|q|xh?)un/$1iong/
-    - derive/y(h?)un/y$1ong/
-    - derive/(jh?|q|xh?)iong/$1un/
-    - derive/n(h?)iong/n$1yun/
-    - derive/y(h?)ong/y$1un/
     # 干官不分
     - derive/^([gkh])uoe/$1oe/
     - derive/^whoe/hhoe/
