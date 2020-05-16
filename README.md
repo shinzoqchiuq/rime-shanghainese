@@ -40,7 +40,7 @@
 |  絲  |   s    |     s      |  s   |  s   |  s   |  s   |
 |  字  |   z    |     z      |  sh  |  z   |  z   |  z   |
 |  機  |   tɕ   |     c      |  j   |  c   |  c   |  ky  |
-|  期  |  tɕʰ   |     ch     |  q   |  ch  |  ch  |  q   |
+|  欺  |  tɕʰ   |     ch     |  q   |  ch  |  ch  |  q   |
 |  其  |   dʑ   |     j      |  jh  |  j   |  j   |  j   |
 |  擬  |   ȵ    |     gn     |  nh  |  nr  |  gn  |  n   |
 |  粘  |   ʔȵ   |     kn     |  n   |  n   |  kn  |  n   |
