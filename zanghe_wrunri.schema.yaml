@@ -4,7 +4,7 @@
 schema:
   schema_id: zanghe_wrunri
   name: 上海中派（滬二）
-  version: "0.1.4"
+  version: "0.1.5"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -88,6 +88,9 @@ speller:
     - xform/uk/uik/
     - xform/er/el/
 
+    # 尖團不分
+    - derive/ts(h?)i/c$1i/
+    - derive/^(s|z)i/$1hi/
     # 清鼻邊音
     - derive/^([mnl])r/$1/
     - derive/^ngr/ng/
