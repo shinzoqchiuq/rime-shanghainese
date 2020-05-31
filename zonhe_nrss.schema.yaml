@@ -4,7 +4,7 @@
 schema:
   schema_id: zonhe_nrss
   name: 上海中派（NRSS）
-  version: "0.1.1"
+  version: "0.1.2"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -87,6 +87,11 @@ speller:
     - derive/c/tsh/
     - derive/on$/aon/
 
+    # 尖團不分
+    - derive/tsi/kyi/
+    - derive/ci/qi/
+    - derive/^si/xi/
+    - derive/^zi/zhi/
     # 干官不分
     - derive/uoe/oe/
     # 余圓不分
