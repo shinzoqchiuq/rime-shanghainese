@@ -4,7 +4,7 @@
 schema:
   schema_id: zanghe_wrunri
   name: 上海中派（滬二）
-  version: "0.2.1"
+  version: "0.2.2"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -136,7 +136,7 @@ translator:
   dictionary: wugniu_zaonhe  # 調取詞典wugniu_zaonhe
   prism: zanghe_wrunri        # 根據拼寫運算生成棱鏡文件zanghe_wrunri
   spelling_hints: 5          # 標註拼音
-  comment_format: &comment
+  comment_format:
     # 轉換爲滬二
     - xform/\b([mnl])/$1r/
     - xform/\b([mnl])rh/$1/
@@ -203,7 +203,8 @@ reverse_lookup:
   tags: [luna_pinyin, stroke] # 掛在翻譯器luna_pinyin和stroke上
   overwrite_comment: true     # 覆蓋其他提示
   dictionary: wugniu_zaonhe   # 反查所得爲上海吳語
-  comment_format: *comment
+  comment_format:
+    __include: translator/comment_format
 
 punctuator:
   import_preset: symbols # 句讀處理器，統一從外部導入
