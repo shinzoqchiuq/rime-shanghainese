@@ -4,7 +4,7 @@
 schema:
   schema_id: zaonhe_faqwu
   name: 上海中派（法吳）
-  version: "0.2.2"
+  version: "0.3.0"
   author:
     - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -112,10 +112,6 @@ speller:
     - derive/^(c|j|kn|gn|[csz]h)i(?=[aoue])/$1/
     # 容錯 介音、主元音順序調換
     - derive/^(.+)([iu])([aeou])([euonqh])$/$1$3$2$4/
-    # 容錯 y- => ghi-
-    - derive/yi|y(?=[aeou])/ghi/
-    # 容錯 w- => ghu-
-    - derive/wu|w(?=[aeo])/ghu/
 
 # 主翻譯器
 translator:
