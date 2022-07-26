@@ -4,9 +4,9 @@
 schema:
   schema_id: zaonhe_faqwu
   name: 上海中派（法吳）
-  version: "0.3.0"
+  version: "0.3.1"
   author:
-    - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
+    - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
     中派上海話輸入方案（法吳）
     吳語拉丁式注音法（法吳）

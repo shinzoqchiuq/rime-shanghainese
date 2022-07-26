@@ -4,9 +4,9 @@
 schema:
   schema_id: zonhe_nrss
   name: 上海中派（NRSS）
-  version: "0.3.0"
+  version: "0.3.1"
   author:
-    - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
+    - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
     The New Romanization System of Shanghainese (NRSS)
     方案設計：沪语角 <930702500@qq.com>

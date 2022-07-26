@@ -4,9 +4,9 @@
 schema:
   schema_id: zanghe_wrunri
   name: 上海中派（滬二）
-  version: "0.2.2"
+  version: "0.2.3"
   author:
-    - Electric Sheep <shinzoqchiuq@outlook.com> (schema)
+    - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
     中派上海話輸入方案（滬二）
     採用上海話拼音方案 副式（滬二）
