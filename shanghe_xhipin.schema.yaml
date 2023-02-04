@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_xhipin
   name: 上海中派（錢拼）
-  version: "0.2.3"
+  version: "0.3.0"
   author:
     - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -96,6 +96,7 @@ speller:
     - xform/ioe/uoe/
     - xform/au/ao/
     - xform/eu/ou/
+    - xform/iou/iu/
     - xform/aon/ang/
     - xform/on/ong/
     - xform/uk/uik/
@@ -104,6 +105,9 @@ speller:
     - derive/zi/ji/
     - derive/ci/qi/
     - derive/^s(h?)i/x$1i/
+    - derive/zyu/ju/
+    - derive/cyu/qu/
+    - derive/^s(h?)yu/x$1u/
     # 清鼻邊音
     - derive/^([mnl])h/$1/
     # fh => v
@@ -113,7 +117,7 @@ speller:
     - derive/^whoe/hhoe/
     - derive/^woe/oe/
     # 余圓不分
-    - derive/(y|yh|j|q|jh|x|xh)uoe$/u/
+    - derive/(y|yh|j|q|jh|x|xh)uoe$/$1u/
     # 打黨不分
     - derive/ang$/an/
     - derive/an$/ang/
@@ -134,8 +138,6 @@ speller:
     - abbrev/^([bmfdnlsjxghyw]h|ng|nhg).+$/$1/
     # 容錯 ao => oa
     - derive/ao/oa/
-    # j組聲母後自動加i
-    - derive/^(j|q|jh|x|xh)i(?=[aoe])/$1/
     # 容錯 介音、主元音順序調換
     - derive/^(.+)([iu])([aeou])([euonk])$/$1$3$2$4/
     # 容錯 oe => eo
@@ -182,6 +184,7 @@ translator:
     - xform/ioe/uoe/
     - xform/au/ao/
     - xform/eu/ou/
+    - xform/iou/iu/
     - xform/aon/ang/
     - xform/on/ong/
     - xform/uk/uik/
