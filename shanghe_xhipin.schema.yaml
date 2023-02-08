@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_xhipin
   name: 上海中派（錢拼）
-  version: "0.3.0"
+  version: "0.3.1"
   author:
     - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -93,7 +93,8 @@ speller:
 
     - xform/iu/yu/
     - xform/(yh?)oe/$1uoe/
-    - xform/ioe/uoe/
+    - xform/(jh?|q|xh?)ioe/$1uoe/
+    - xform/(nh?)ioe/$1yuoe/
     - xform/au/ao/
     - xform/eu/ou/
     - xform/iou/iu/
@@ -117,7 +118,8 @@ speller:
     - derive/^whoe/hhoe/
     - derive/^woe/oe/
     # 余圓不分
-    - derive/(y|yh|j|q|jh|x|xh)uoe$/$1u/
+    - derive/^(yh?|jh?|q|xh?)uoe$/$1u/
+    - derive/^(nh?)yuoe$/$1yu/
     # 打黨不分
     - derive/ang$/an/
     - derive/an$/ang/
@@ -181,7 +183,8 @@ translator:
 
     - xform/iu/yu/
     - xform/(yh?)oe/$1uoe/
-    - xform/ioe/uoe/
+    - xform/(jh?|q|xh?)ioe/$1uoe/
+    - xform/(nh?)ioe/$1yuoe/
     - xform/au/ao/
     - xform/eu/ou/
     - xform/iou/iu/
