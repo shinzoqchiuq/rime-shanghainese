@@ -4,7 +4,7 @@
 schema:
   schema_id: zanghe_wrunri
   name: 上海中派（滬二）
-  version: "0.2.3"
+  version: "0.2.4"
   author:
     - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -23,7 +23,7 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - name: simplification
+  - name: shanghainese_simp
     reset: 1
     states: [ 漢字, 汉字 ]
   - name: ascii_punct
@@ -205,6 +205,9 @@ reverse_lookup:
   dictionary: wugniu_zaonhe   # 反查所得爲上海吳語
   comment_format:
     __include: translator/comment_format
+
+simplifier:
+  option_name: shanghainese_simp
 
 punctuator:
   import_preset: symbols # 句讀處理器，統一從外部導入
