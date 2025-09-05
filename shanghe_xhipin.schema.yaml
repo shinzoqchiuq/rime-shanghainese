@@ -4,7 +4,7 @@
 schema:
   schema_id: shanghe_xhipin
   name: 上海中派（錢拼）
-  version: "0.3.2"
+  version: "0.4.0"
   author:
     - Shin Zoqchiuq <shinzoqchiuq@outlook.com> (schema)
   description: |
@@ -64,11 +64,9 @@ speller:
   algebra:
     - xform/^([bcdfghjklpqstvwxyz])$/$1_/
     # 轉換爲錢拼
-    - xform/^([mnl])/$1h/
-    - xform/^([mnl])hh/$1/
-    - xform/^gn/nh/
-    - xform/^kn/n/
-    - xform/^nhk/ng/
+    - xform/^([mnl])h/$1/
+    - xform/^(g|k)n/n/
+    - xform/^nk/ng/
     - xform/^gh/hh/
     - xform/^(c|j|[csz]h)i(?=u)/$1/
     - xform/^([bdgj])/$1h/
@@ -109,8 +107,6 @@ speller:
     - derive/zyu/ju/
     - derive/cyu/qu/
     - derive/^s(h?)yu/x$1u/
-    # 清鼻邊音
-    - derive/^([mnl])h/$1/
     # fh => v
     - derive/^fh/v/
     # 干官不分
@@ -154,11 +150,9 @@ translator:
   spelling_hints: 5          # 標註拼音
   comment_format:
     # 轉換爲錢拼
-    - xform/\b([mnl])/$1h/
-    - xform/\b([mnl])hh/$1/
-    - xform/\bgn/nh/
-    - xform/\bkn/n/
-    - xform/\bnhk/ng/
+    - xform/\b([mnl])h/$1/
+    - xform/\b(g|k)n/n/
+    - xform/\bnk/ng/
     - xform/\bgh/hh/
     - xform/\b(c|j|[csz]h)i(?=u)/$1/
     - xform/\b([bdgj])/$1h/
